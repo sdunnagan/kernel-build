@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+
+# shellcheck source=lib/kernel-build-common.sh
+source "$SCRIPT_DIR/lib/kernel-build-common.sh"
+
+# shellcheck source=lib/kernel-build-centos.sh
+source "$SCRIPT_DIR/lib/kernel-build-centos.sh"
+
+centos_main "$@"

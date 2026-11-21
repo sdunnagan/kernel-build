@@ -1,0 +1,76 @@
+# Optional overrides consolidated from the five legacy config files.
+# IMPORTANT: These are DEVELOPMENT overrides, not distribution defaults.
+# Both builders apply matching directives automatically on every -c.
+# Edit or comment out directives here to change local build preferences.
+# Official Red Hat CI uses its own configurations.
+#
+# Supported sections: [all], [centos], [upstream], [arch:x86_64],
+# [platform:orin-nano], [centos:opi5plus], [upstream:opi5plus], etc.
+# No matching section = no changes. A flat legacy file still works.
+
+[centos]
+# Legacy CS9/CS10 common development overrides. Disables SELinux, BTF,
+# module signing checks and WERROR: only for deliberate local experiments.
+disable WERROR
+disable SECURITY_SELINUX
+disable DEBUG_INFO_BTF
+disable DEBUG_INFO_BTF_MODULES
+disable MODULE_SIG_ALL
+disable MODULE_SIG_FORCE
+disable IWLMLD
+
+[centos:opi5plus]
+# Legacy extra changes for RK3588; check prerequisites before using.
+enable ARCH_ROCKCHIP
+disable PCI
+disable PCIE_ROCKCHIP_HOST
+enable DEBUG_FS
+enable ARM_SCMI_PROTOCOL
+enable ARM_SCMI_TRANSPORT_SMC
+enable ARM_SCMI_PERF_DOMAIN
+enable ARM_SCMI_POWER_DOMAIN
+enable ARM_SCMI_POWER_CONTROL
+enable COMMON_CLK_SCMI
+enable REGULATOR_ARM_SCMI
+enable RESET_SCMI
+enable PINCTRL_SCMI
+enable ARM_SCMI_CPUFREQ
+enable SENSORS_ARM_SCMI
+enable ROCKCHIP_PM_DOMAINS
+enable PM_GENERIC_DOMAINS
+enable PM_GENERIC_DOMAINS_OF
+enable DEVTMPFS
+enable DEVTMPFS_MOUNT
+enable TMPFS
+enable I2C
+enable I2C_RK3X
+enable I2C_CHARDEV
+enable IIO
+enable IIO_BUFFER
+enable IIO_TRIGGER
+enable BMP280
+enable BMP280_I2C
+enable GPIOLIB
+enable GPIO_CDEV
+enable GPIO_ROCKCHIP
+enable PINCTRL
+enable PINCTRL_ROCKCHIP
+
+[upstream:opi5plus]
+# Legacy upstream Orange Pi 5 Plus development tuning.
+enable IKCONFIG
+disable WERROR
+set-str CMDLINE "console=ttyS2,1500000n8"
+set-val HZ 1000
+disable USB_NET_DRIVERS
+disable DEBUG_INFO_BTF
+disable KASAN
+disable KCSAN
+disable UBSAN
+disable KCOV
+disable GCOV_KERNEL
+disable FTRACE
+disable FUNCTION_TRACER
+disable FUNCTION_GRAPH_TRACER
+disable LOCKDEP
+disable PROVE_LOCKING
