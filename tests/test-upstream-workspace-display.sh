@@ -85,7 +85,7 @@ done
 # -V works without a workspace and remains plain when not attached to a tty.
 for builder in centos-kernel-build upstream-kernel-build; do
     output="$(env -u KERNEL_WORKSPACE_DIR -u KERNEL_SRC_DIR -u KERNEL_BUILD_DIR "$root/$builder" -V)"
-    eq "$output" 'kernel-build 0.1.10'
+    eq "$output" 'kernel-build 1.0.0'
 done
 
 # Config-only upstream invocation derives paths and attempts defconfig when
@@ -104,7 +104,7 @@ grep -Fq 'defconfig' "$work/cli.log"
 if command -v script >/dev/null 2>&1 && command -v tput >/dev/null 2>&1; then
     TERM=xterm script -q -c "$root/upstream-kernel-build -V" /dev/null > "$work/tty.log"
     white="$(TERM=xterm tput setaf 7)"
-    [[ $(cat "$work/tty.log") == *"${white}kernel-build 0.1.10"* ]] || {
+    [[ $(cat "$work/tty.log") == *"${white}kernel-build 1.0.0"* ]] || {
         echo 'Expected white banner in TTY mode' >&2; exit 1;
     }
 fi

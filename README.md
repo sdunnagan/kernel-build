@@ -147,7 +147,7 @@ CentOS-specific behavior lives in separate libraries.
 
 ## Version
 
-The current kernel-build version is `0.1.10`. Both front ends print the
+The current kernel-build version is `1.0.0`. Both front ends print the
 version when they start. Version 0.1.1 fixes kernel-image selection by using
 Kbuild's configured `KBUILD_IMAGE`; this is required for RISC-V EFI zboot
 kernels such as the VisionFive 2 Fedora configuration.

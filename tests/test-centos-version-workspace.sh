@@ -107,7 +107,7 @@ grep -Fq 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.gi
 [[ "$(grep -cF 'https://' "$work/git-operations")" == 3 ]]
 
 # CLI compatibility: -s and -z are no longer supported, while -V works.
-assert_eq "$("$root/centos-kernel-build" -V)" 'kernel-build 0.1.10'
+assert_eq "$("$root/centos-kernel-build" -V)" 'kernel-build 1.0.0'
 for option in -s -z; do
     if "$root/centos-kernel-build" "$option" >"$work/cli.log" 2>&1; then
         echo "Expected removed option $option to fail" >&2; exit 1

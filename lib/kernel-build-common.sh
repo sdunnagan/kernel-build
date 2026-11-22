@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-KERNEL_BUILD_VERSION="0.1.10"
+KERNEL_BUILD_VERSION="1.0.0"
 
 # The single shared overrides file is part of the builder installation.
 # Resolve it relative to the common library so invocation directory and
